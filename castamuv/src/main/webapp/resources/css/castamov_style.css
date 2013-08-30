@@ -1,0 +1,33 @@
+@charset "utf-8";
+html>/**/body { overflow-y:scroll; } 
+html, body {height: 100%; width: 100%;}
+html {overflow-y: auto;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, input {margin: 0; padding: 0;}
+body, h1, h2, h3, h4, input, button {color: #ffffff; font-family:Helvetica,sans-serif; font-size: 34px;}
+body {background:#353535;}
+img, fieldset, iframe {border: 0 none;}
+li {list-style: none outside none;}
+input, select, button {vertical-align: middle;}
+input:focus {outline: 0 none;}
+textarea {outline: 0 none;}
+img {vertical-align: top;}
+label, button {cursor: pointer;}
+button {margin: 0; padding: 0;}
+a {cursor: pointer; text-decoration: none;}
+a:hover {cursor: pointer; text-decoration: none;}
+button * {position: relative;}
+/*------------------------------------------------------------------------------------*/
+.PointColorPink{#ed145b;}
+.PointColorYellow{#ffb915;}
+
+.LogoSplashWrap{
+ width: 100%;
+ text-align: center;
+}
+.LogoSplash{
+ margin: 0 auto;
+ width:435px;
+ height: 60px;
+ background:url(../images/logo_splash.png) no-repeat;
+ margin-top: 400px;
+}

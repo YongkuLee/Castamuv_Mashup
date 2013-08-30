@@ -76,6 +76,47 @@ button * {position: relative;}
  background:url(../images/logo_splash.png) no-repeat;
  margin-top: 400px;
 }
+/*-02store_gps_start-------------------------------------------------------------------------*/
+.StoreGPSWrap{
+ width:100%;
+ height: 100%;
+}
+.StoreGPSMapWrap{
+ width:100%;
+ height: 340px;
+}
+.StoreGPSMapBox{
+ width:100%;
+ height: 340px;
+ position: relative;
+ background: green;
+}
+.StoreGPSMapPlaceBox{
+ width:100%;
+ height: 55px;
+ background: rgba(0, 0, 0, .75);
+ position: relative;
+ bottom:-285px;
+}
+.StoreGPSMapPlaceName{
+ padding:7px 0 0 15px;
+ font-size: 28px;
+}
+.StoreGPSTabButtonBG{
+ height: 90px;
+}
+.StoreGPSMusicListWrap{
+ width:100%;
+ height: 110px;
+ margin-bottom: 1px;
+ background: rgba(32, 32, 32, 1);
+}
+.StoreGPSMusicListTextWrap{
+ padding:40px 0 0 20px;
+ font-size:30px;
+ height: 110px;
+
+  }
 /*-03store_nowplaying-------------------------------------------------------------------------*/
 .StoreNowWrap{
  width:100%;
@@ -139,7 +180,6 @@ button * {position: relative;}
  position: relative;
  top:-181px;
  z-index: -10;
-
 }
 .StoreNowMusicListLike{
  width:20px;

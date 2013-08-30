@@ -1,0 +1,128 @@
+@charset "utf-8";
+html>/**/body { overflow-y:scroll; } 
+html, body {height: 100%; width: 100%;}
+html {overflow-y: auto;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, input {margin: 0; padding: 0;}
+body, h1, h2, h3, h4, input, button {color: #ffffff; font-family:Helvetica,sans-serif; font-size: 34px;font-weight: 100;}
+body {background:#353535;}
+img, fieldset, iframe {border: 0 none;}
+li {list-style: none outside none;}
+input, select, button {vertical-align: middle;}
+input:focus {outline: 0 none;}
+textarea {outline: 0 none;}
+img {vertical-align: top;}
+label, button {cursor: pointer;}
+button {margin: 0; padding: 0;}
+a {cursor: pointer; text-decoration: none;}
+a:hover {cursor: pointer; text-decoration: none;}
+button * {position: relative;}
+
+.WebWrap{
+ width:100%;
+ height:100%;
+ background: url(../images/web01_BG.png) no-repeat left top;
+ background-size: cover;
+}
+.YoutubeWrap{
+ width:100%;
+ height:100%;
+ background: green;
+}
+.Door{
+ background: url(../images/img_button_goout.png) no-repeat;
+ width: 159px;
+ height: 160px;
+ position: absolute;
+ bottom:100px;
+ left: 200px;
+ 
+}
+.Logo01{
+ width:345px;
+ height: 60px;
+ background: url(../images/logo_splash.png) no-repeat left top;
+ position: relative;
+ top:30px;
+ left:40px;
+}
+.Logo02{
+ width:345px;
+ height: 60px;
+ background: url(../images/logo_splash.png) no-repeat left top;
+ position: relative;
+ margin: 0 auto;
+ top:20px;
+}
+.BoxWrap{
+ text-align: center;
+}
+.Box01{
+ background: rgba(0,0,0,.5);
+ width:358px;
+ height: 200px;
+ text-align: center;
+ padding-top:120px;  
+ margin: 0 auto;
+ display: inline-block;
+ margin-top:12%; 
+ margin-left: 2%;
+ }
+.ProgileWrap{
+ text-align: center;
+} 
+.Profile01{
+ width:100px;
+ height: 100px;
+ display: inline-block;
+ margin-top: 3%;
+ text-align: left;
+ background: green;
+ }
+.YoutubeListWrap{
+ background: rgba(0,0,0,.5);
+ width:710px;
+ height: 817px;
+ position: absolute;
+ top:17%;
+ right:0px;
+}
+.YoutubeListSubWrap{
+ width:710px;
+ height: 696px;
+ position: relative;
+ top:100px;
+ left:-183px;
+ overflow-y: scroll;
+}
+.YoutubeListSubThumbWrap{
+ background: #ffffff;
+ color: #000000;
+}
+.YoutubeListSubThumb{
+ width:168px;
+ height: 116px;
+ border: 2px solid #ffffff;
+ background: black;
+ margin: 0 0 20px 20px;
+ display: inline-block;
+ position: relative;
+ top:25px;
+
+}
+.YoutubeListSubThumbTitle{
+ width:450px;
+ height: 116px;
+ margin: 0 0 20px 10px;
+ display: inline-block;
+ position: relative;
+ top:-25px;
+
+}
+.YoutubeListSubThumbIcon{
+ background: url(../images/icon_mail.png) no-repeat;
+ width:84px;
+ height: 51px;
+ position: absolute;
+ top:30px;
+ left:40px;
+}

@@ -4,10 +4,24 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.4.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<security:http auto-config="true">
+	<security:http>
+		<security:form-login login-page="/" />
+		<security:logout logout-url="/logout" />
 	</security:http>
 
 	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="userService">
+			<security:password-encoder ref="passwordEncoder" />
+		</security:authentication-provider>
 	</security:authentication-manager>
+
+	<bean id="userService"
+		class="gr.brid.castamuv.infrastructure.security.DefaultUserService">
+		<constructor-arg name="userRepository" ref="userRepository" />
+	</bean>
+	<bean id="passwordEncoder"
+		class="gr.brid.castamuv.infrastructure.security.DefaultPasswordEncoder">
+	</bean>
 
 </beans>

@@ -24,6 +24,9 @@
 		<org.springframework.security.crypto-version>3.1.0.RELEASE</org.springframework.security.crypto-version>
 		<org.hibernate.version>3.6.5.Final</org.hibernate.version>
 		<org.thymeleaf.version>2.0.16</org.thymeleaf.version>
+		<project.youtube.version>v3-rev24-1.13.2-beta</project.youtube.version>
+		<project.http.version>1.13.1-beta</project.http.version>
+		<project.oauth.version>1.13.1-beta</project.oauth.version>
 	</properties>
 	<dependencies>
 		<!-- Spring Security -->
@@ -373,33 +376,6 @@
 			<version>1.6</version>
 		</dependency>
 
-		<!-- google APIs -->
-		<dependency>
-			<groupId>com.google.gdata.gdata-java-client</groupId>
-			<artifactId>gdata-youtube-2.0</artifactId>
-			<version>1.47.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gdata.gdata-java-client</groupId>
-			<artifactId>gdata-core-1.0</artifactId>
-			<version>1.47.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gdata.gdata-java-client</groupId>
-			<artifactId>gdata-base-1.0</artifactId>
-			<version>1.47.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gdata.gdata-java-client</groupId>
-			<artifactId>gdata-client-1.0</artifactId>
-			<version>1.47.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gdata.gdata-java-client</groupId>
-			<artifactId>gdata-media-1.0</artifactId>
-			<version>1.47.1</version>
-		</dependency>
-
 		<!-- Google Common Library -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -599,6 +575,24 @@
 			<artifactId>spring-test-mvc</artifactId>
 			<version>1.0.0.M1</version>
 		</dependency>
+
+		<!-- YouTube Data V3 support -->
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-youtube</artifactId>
+			<version>${project.youtube.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client-jackson2</artifactId>
+			<version>${project.http.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>${project.oauth.version}</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 
@@ -650,9 +644,8 @@
 		</repository>
 
 		<repository>
-			<id>gdata-maven-github</id>
-			<name>Google Gdata Maven Repository</name>
-			<url>https://raw.github.com/eburtsev/gdata-maven/master/</url>
+			<id>google-api-services</id>
+			<url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
 		</repository>
 
 	</repositories>

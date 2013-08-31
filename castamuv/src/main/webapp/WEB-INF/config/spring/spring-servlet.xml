@@ -11,6 +11,8 @@
 
 	<context:component-scan base-package="gr.brid.castamuv.interfaces" />
 
+	<bean class="gr.brid.castamuv.infrastructure.security.SocialConfig" />
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"

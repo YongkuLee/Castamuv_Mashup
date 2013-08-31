@@ -11,6 +11,6 @@ packages/
 .classpath
 .springBeans
 .DS_Store
-
+.metadata/
 Servers/
 

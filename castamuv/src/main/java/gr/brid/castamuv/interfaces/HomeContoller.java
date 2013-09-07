@@ -1,16 +1,7 @@
 package gr.brid.castamuv.interfaces;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gr.brid.castamuv.application.user.SignUpService;
 import gr.brid.castamuv.application.user.UserListingService;
-import gr.brid.castamuv.application.user.UserMusicboxGettingService;
-import gr.brid.castamuv.domain.model.music.Music;
-import gr.brid.castamuv.domain.model.playlist.PlayList;
-import gr.brid.castamuv.domain.model.user.Channel;
-import gr.brid.castamuv.domain.model.user.UserId;
-import gr.brid.castamuv.domain.shared.DefaultValues;
 
 import javax.inject.Inject;
 
@@ -28,9 +19,6 @@ public class HomeContoller {
 	private SignUpService signUpService;
 
 	private UserListingService userListingService;
-
-	@Inject
-	private UserMusicboxGettingService service;
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -54,31 +42,6 @@ public class HomeContoller {
 	public String login(Model model) {
 
 		return "login";
-	}
-
-	@RequestMapping("/player")
-	public String mobile(Model model) {
-		Authentication auth = SecurityContextHolder.getContext()
-				.getAuthentication();
-
-		List<Music> musics = new ArrayList<Music>();
-
-		List<PlayList> lists = service.playLists(new UserId(auth.getName()));
-
-		for (PlayList list : lists) {
-			musics.addAll(service.musics(list.getId()));
-		}
-
-		/*
-		 * List<Channel> channels = service.channels(new UserId(
-		 * DefaultValues.STORE_ID)); for (Channel channel : channels) {
-		 * musics.addAll(service.musics(channel.getId())); }
-		 */
-
-		model.addAttribute("musics", musics);
-		model.addAttribute("auth", auth);
-
-		return "home";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)

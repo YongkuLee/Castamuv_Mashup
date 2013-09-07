@@ -1,7 +1,6 @@
 package gr.brid.castamuv.interfaces;
 
 import gr.brid.castamuv.application.user.UserMusicboxGettingService;
-import gr.brid.castamuv.domain.model.playlist.PlayList;
 import gr.brid.castamuv.domain.model.user.Channel;
 import gr.brid.castamuv.domain.model.user.UserId;
 import gr.brid.castamuv.domain.shared.DefaultValues;
@@ -14,8 +13,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

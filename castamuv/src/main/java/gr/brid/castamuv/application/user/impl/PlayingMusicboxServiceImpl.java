@@ -43,7 +43,10 @@ public class PlayingMusicboxServiceImpl implements PlayingMusicboxService {
 		User user = userRepository.findOne(userId);
 		user.getStatus().setPlay(true);
 		for (Channel channel : user.getChannels()) {
-			user.getStatus().setMusic(channel.getCurrentStream().getMusic());
+			Music music = musicRepository.findOne(channel.getCurrentStream()
+					.getMusicId());
+			if (music != null)
+				user.getStatus().setMusic(music);
 		}
 		userRepository.save(user);
 	}

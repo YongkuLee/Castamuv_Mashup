@@ -10,7 +10,7 @@ import gr.brid.castamuv.domain.shared.ValueObject;
 @Embeddable
 public class ChannelId implements ValueObject<ChannelId> {
 	private static final long serialVersionUID = -6749581503346423142L;
-
+	
 	private long id;
 
 	public ChannelId() {
@@ -19,6 +19,10 @@ public class ChannelId implements ValueObject<ChannelId> {
 
 	public ChannelId(String id) {
 		this.id = Long.parseLong(id);
+	}
+	
+	public ChannelId(long id) {
+		this.id = id;
 	}
 
 	@Override

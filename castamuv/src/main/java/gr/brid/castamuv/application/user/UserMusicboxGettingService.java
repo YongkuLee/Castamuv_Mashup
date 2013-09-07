@@ -7,6 +7,7 @@ import gr.brid.castamuv.domain.model.playlist.PlayListId;
 import gr.brid.castamuv.domain.model.user.Channel;
 import gr.brid.castamuv.domain.model.user.ChannelId;
 import gr.brid.castamuv.domain.model.user.Status;
+import gr.brid.castamuv.domain.model.user.Stream;
 import gr.brid.castamuv.domain.model.user.User;
 import gr.brid.castamuv.domain.model.user.UserId;
 
@@ -24,6 +25,8 @@ public interface UserMusicboxGettingService {
 	Status status(UserId id);
 
 	List<Music> musics(ChannelId channelId);
+
+	Stream next(ChannelId channelId);
 
 	Music music(MusicId musicId);
 

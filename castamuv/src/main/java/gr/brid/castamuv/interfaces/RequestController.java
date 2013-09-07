@@ -42,11 +42,17 @@ public class RequestController {
 
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
+		UserId userId;
+		if (auth.getName().equals("anonymousUser"))
+			userId = new UserId(0);
+		else
+			userId = new UserId(auth.getName());
 
-		requestService.request(new MusicId(musicId),
-				new PlayListId(playListId), new ChannelId(channelId), 0,
-				new UserId(auth.getName()));
+		requestService
+				.request(new MusicId(musicId), new PlayListId(playListId),
+						new ChannelId(channelId), 0, userId);
 
-		return "redirect://request";
+		return "redirect:/request?musicId=" + musicId + "&playListId="
+				+ playListId + "&channelId=" + channelId;
 	}
 }

@@ -70,9 +70,20 @@ public class UserMusicboxGettingServiceImpl implements
 		Channel channel = userRepository.findByChannelId(channelId);
 
 		for (Stream stream : channel.getCurrentStreamList()) {
-			musics.add(stream.getMusic());
+			Music music = musicRepository.findOne(stream.getMusicId());
+			music.setLikes(null);
+			if (music != null)
+				musics.add(music);
 		}
 		return musics;
+	}
+
+	@Override
+	public Stream next(ChannelId channelId) {
+		Channel channel = userRepository.findByChannelId(channelId);
+		Stream stream = channel.nextStream();
+		userRepository.save(channel.getUser());
+		return stream;
 	}
 
 	@Override

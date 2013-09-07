@@ -13,7 +13,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -48,7 +47,7 @@ public class User implements EntityModel<User> {
 	@OneToMany
 	private List<PlayList> playLists;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Channel> channels;
 
 	private Status status;

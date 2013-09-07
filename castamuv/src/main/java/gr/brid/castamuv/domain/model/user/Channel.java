@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,7 +27,8 @@ public class Channel {
 
 	private String title;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Stream> streams;
 
 	private Location location;
@@ -35,12 +39,6 @@ public class Channel {
 
 	// start at number 1
 	private int current;
-
-	public String getThumbnail() {
-		if (!streams.isEmpty())
-			return this.streams.get(0).getMusic().getLink().getThumbnail();
-		return "";
-	}
 
 	public Channel(User user) {
 		this.id = new ChannelId();
@@ -55,7 +53,7 @@ public class Channel {
 		} else if (this.streams.size() == 0) {
 			return this.streams;
 		}
-		return this.streams.subList(this.current - 1, this.streams.size() - 1);
+		return this.streams.subList(this.current - 1, this.streams.size());
 	}
 
 	public Stream getCurrentStream() {

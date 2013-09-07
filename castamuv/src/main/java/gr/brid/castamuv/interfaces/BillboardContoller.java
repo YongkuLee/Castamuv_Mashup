@@ -4,7 +4,6 @@ import gr.brid.castamuv.interfaces.dtos.BillboardDTO;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -31,13 +30,14 @@ public class BillboardContoller {
 			SyndFeed feeder = new SyndFeedInput().build(xmlReader);
 			System.out.println("Title Value " + feeder.getAuthor());
 
-			for (Iterator iterator = feeder.getEntries().iterator(); iterator
-					.hasNext();) {
-				SyndEntry syndEntry = (SyndEntry) iterator.next();
+			for (Object entry : feeder.getEntries()) {
+
+				SyndEntry syndEntry = (SyndEntry) entry;
+
 				System.out.println(syndEntry.getTitle());
 
 				BillboardDTO dto = new BillboardDTO(syndEntry.getTitle());
-				
+
 				dtos.add(dto);
 			}
 		} finally {

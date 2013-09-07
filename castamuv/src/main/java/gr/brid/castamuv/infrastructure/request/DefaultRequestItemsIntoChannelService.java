@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class DefaultRequestItemsIntoChannelService implements
 		RequestItemsIntoChannelService {
-
+	
 	@Override
 	public Channel request(Music music, PlayList list, Channel channel,
 			long coin, User user) {
-		Stream stream = new Stream(channel, music, list, user);
+		Stream stream = new Stream(channel.getId(), music.getId(),
+				list.getId(), user.getId());
 		channel.getStreams().add(stream);
 		return channel;
 	}
@@ -24,7 +25,8 @@ public class DefaultRequestItemsIntoChannelService implements
 	@Override
 	public Channel request(PlayList list, Channel channel, long coin, User user) {
 		for (Music music : list.getMusics()) {
-			Stream stream = new Stream(channel, music, list, user);
+			Stream stream = new Stream(channel.getId(), music.getId(),
+					list.getId(), user.getId());
 			channel.getStreams().add(stream);
 		}
 		return channel;

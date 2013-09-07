@@ -23,6 +23,10 @@ public class UserId implements ValueObject<UserId> {
 		this.id = Long.valueOf(id);
 	}
 
+	public UserId(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return Long.toString(this.id);

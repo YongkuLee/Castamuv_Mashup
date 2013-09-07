@@ -1,22 +1,12 @@
 package gr.brid.castamuv.interfaces;
 
-import gr.brid.castamuv.interfaces.dtos.BillboardDTO;
 import gr.brid.castamuv.interfaces.dtos.MelonDTO;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,9 +48,8 @@ public class MelonController {
 			SyndFeed feeder = new SyndFeedInput().build(xmlReader);
 			System.out.println("Title Value " + feeder.getAuthor());
 
-			for (Iterator iterator = feeder.getEntries().iterator(); iterator
-					.hasNext();) {
-				SyndEntry syndEntry = (SyndEntry) iterator.next();
+			for (Object entry : feeder.getEntries()) {
+				SyndEntry syndEntry = (SyndEntry) entry;
 				System.out.println(syndEntry.getTitle());
 
 				MelonDTO dto = new MelonDTO(syndEntry.getTitle());

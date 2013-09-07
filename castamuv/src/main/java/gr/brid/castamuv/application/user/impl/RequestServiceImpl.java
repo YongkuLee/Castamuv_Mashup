@@ -22,41 +22,53 @@ import gr.brid.castamuv.domain.service.RequestItemsIntoChannelService;
 @Service
 @Transactional
 public class RequestServiceImpl implements RequestService {
-	
+
 	private MusicRepository musicRepository;
-	
+
 	private PlayListRepository playListRepository;
-	
+
 	private UserRepository userRepository;
-	
+
 	private RequestItemsIntoChannelService requestItemsIntoChannelService;
-	
+
 	@Override
-	public void request(MusicId musicId, PlayListId playListId, ChannelId channelId, long coin, UserId userId) {
+	public void request(MusicId musicId, PlayListId playListId,
+			ChannelId channelId, long coin, UserId userId) {
 		Music music = musicRepository.findOne(musicId);
 		PlayList list = playListRepository.findOne(playListId);
-		Channel channel = userRepository.findByChannelId(channelId);
+		User player = userRepository.findByChannel(channelId);
 		User user = userRepository.findOne(userId);
-		
-		requestItemsIntoChannelService.request(music, list, channel, coin, user);
+
+		Channel channel = null;
+		for (Channel c : player.getChannels()) {
+			if (c.getId().sameValueOf(channelId))
+				channel = c;
+		}
+
+		if (channel != null)
+			requestItemsIntoChannelService.request(music, list, channel, coin,
+					user);
+
+		userRepository.save(player);
+
 	}
-	
+
 	@Inject
 	public void setRequestItemsIntoChannelService(
 			RequestItemsIntoChannelService requestItemsIntoChannelService) {
 		this.requestItemsIntoChannelService = requestItemsIntoChannelService;
 	}
-	
+
 	@Inject
 	public void setMusicRepository(MusicRepository musicRepository) {
 		this.musicRepository = musicRepository;
 	}
-	
+
 	@Inject
 	public void setPlayListRepository(PlayListRepository playListRepository) {
 		this.playListRepository = playListRepository;
 	}
-	
+
 	@Inject
 	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository = userRepository;

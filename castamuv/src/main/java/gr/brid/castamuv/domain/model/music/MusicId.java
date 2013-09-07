@@ -23,6 +23,10 @@ public class MusicId implements ValueObject<MusicId> {
 		this.id = Long.parseLong(id);
 	}
 
+	public MusicId(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public boolean sameValueOf(MusicId object) {
 		return this.id == object.getId();
